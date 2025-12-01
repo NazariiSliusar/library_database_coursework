@@ -14,7 +14,7 @@
                         <p class="card-text">
                             <?= htmlspecialchars($book['description'] ?? 'Опис відсутній') ?>
                         </p>
-                        <a href="#" class="btn btn-primary">Взяти в оренду</a>
+                        <a href="borrow.php?book_id=<?= $book['book_id'] ?>" class="btn btn-primary">Взяти в оренду</a>
                     </div>
                 </div>
             </div>

@@ -22,12 +22,22 @@
 
 <div class="d-flex justify-content-between align-items-center" style="position: absolute; top: 8px; right: 20px; pointer-events: none;">
     <div class="dropdown" style="pointer-events: auto;">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-            Вхід/Реєстрація
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Вхід</a></li>
-            <li><a class="dropdown-item" href="#">Реєстрація</a></li>
-        </ul>
+        <?php
+        if (isset($_SESSION['username'])): ?>
+            <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                ✓ <?= htmlspecialchars($_SESSION['username']) ?>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="logout.php">Вихід</a></li>
+            </ul>
+        <?php else: ?>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Вхід/Реєстрація
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="login.php">Вхід</a></li>
+                <li><a class="dropdown-item" href="register.php">Реєстрація</a></li>
+            </ul>
+        <?php endif; ?>
     </div>
 </div>

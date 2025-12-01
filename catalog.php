@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "db.php";
 include "Book.php";
 
@@ -40,7 +41,7 @@ else {
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($book['title']); ?></h5>
                         <p class="card-text"><?php echo htmlspecialchars($book['description'] ?? 'Опис відсутній'); ?></p>
-                        <a href="#" class="btn btn-primary">Взяти в оренду</a>
+                        <a href="borrow.php?book_id=<?= $book['book_id'] ?>" class="btn btn-primary">Взяти в оренду</a>
                     </div>
                 </div>
             </div>
