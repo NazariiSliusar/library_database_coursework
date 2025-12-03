@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" class="form-control mb-2" name="password" placeholder="Пароль" required>
             <input type="password" class="form-control mb-2" name="confirm_password" placeholder="Підтвердіть пароль" required>
             <button type="submit" class="btn btn-primary w-100">Зареєструватися</button>
+            <a href="index.php" class="btn btn-secondary w-100 mt-2">Назад</a>
         </form>
         <p class="mt-2"><a href="login.php">Вже маєте акаунт?</a></p>
     </div>

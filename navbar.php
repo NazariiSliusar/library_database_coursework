@@ -14,8 +14,8 @@
             Користувач
         </button>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Читач</a></li>
-            <li><a class="dropdown-item" href="#">Працівник бібліотеки</a></li>
+            <li><a class="dropdown-item" href="profile.php">Мій профіль</a></li>
+
         </ul>
     </div>
 </div>
@@ -35,7 +35,8 @@
                 Вхід/Реєстрація
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="login.php">Вхід</a></li>
+                <li><a class="dropdown-item" href="login.php">Вхід читача</a></li>
+                <li><a class="dropdown-item" href="staff_login.php">Вхід працівника</a></li>
                 <li><a class="dropdown-item" href="register.php">Реєстрація</a></li>
             </ul>
         <?php endif; ?>
