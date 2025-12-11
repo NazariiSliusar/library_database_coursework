@@ -554,7 +554,6 @@ if ($active_tab === 'reader_search' && isset($_POST['search_reader'])) {
                                         }
                                         ?>
 
-
                                         <?php if ($has_blocked && $is_blocked): ?>
                                             <button type="submit" name="unblock_reader" class="btn btn-success w-100">
                                                 🔓 Розблокувати користувача
@@ -596,7 +595,6 @@ if ($active_tab === 'reader_search' && isset($_POST['search_reader'])) {
                                                 <form method="POST" style="display: inline;">
                                                     <input type="hidden" name="loan_id" value="<?= $loan['loan_id'] ?>">
                                                     <button type="submit" name="return_book" class="btn btn-sm btn-success">Повернути</button>
-                                                    <button type="submit" name="extend_loan" class="btn btn-sm btn-warning">Продовжити</button>
                                                 </form>
                                             <?php endif; ?>
                                         </td>
@@ -641,7 +639,6 @@ if ($active_tab === 'reader_search' && isset($_POST['search_reader'])) {
                                         <form method="POST" style="display: inline;">
                                             <input type="hidden" name="loan_id" value="<?= $loan['loan_id'] ?>">
                                             <button type="submit" name="return_book" class="btn btn-sm btn-success">Повернути</button>
-                                            <button type="submit" name="extend_loan" class="btn btn-sm btn-warning">Продовжити</button>
                                         </form>
                                     <?php endif; ?>
                                 </td>

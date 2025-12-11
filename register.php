@@ -8,10 +8,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = $_POST['first_name'] ?? '';
     $last_name = $_POST['last_name'] ?? '';
     $phone = $_POST['phone'] ?? '';
-    $age = $_POST['age'] ?? 0; // Додайте поле age або встановіть 0
+    $age = $_POST['age'] ?? 0;
 
-    if ($password === $confirm && !empty($username) && !empty($password)) {
-        // Варіант 1: Вставляємо ВСІ поля (крім reader_id - це автоінкремент)
+    $check = $conn->prepare("SELECT username FROM reader WHERE username = ?");
+    $check->bind_param("s", $username);
+    $check->execute();
+    $check_result = $check->get_result();
+
+    if ($check_result->num_rows > 0) {
+        $error = "❌ Цей логін вже зареєстрований. Виберіть інший.";
+    }
+    // ПЕРЕВІРКА 2: Перевіряємо паролі та заповненість полів
+    elseif ($password !== $confirm) {
+        $error = "❌ Паролі не збігаються";
+    }
+    elseif (empty($username) || empty($password) || empty($first_name) || empty($last_name)) {
+        $error = "❌ Заповніть всі обов'язкові поля";
+    }
+    else {
         $stmt = $conn->prepare("INSERT INTO reader (first_name, last_name, age, phone, registration_date, password, username) 
                                 VALUES (?, ?, ?, ?, NOW(), ?, ?)");
 
@@ -25,11 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: login.php");
             exit;
         } else {
-            $error = "Помилка при реєстрації: " . $stmt->error;
+            $error = "❌ Помилка при реєстрації: " . $stmt->error;
         }
         $stmt->close();
-    } else {
-        $error = "Паролі не збігаються або поля пусті";
     }
 }
 ?>

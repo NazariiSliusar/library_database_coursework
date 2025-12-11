@@ -14,10 +14,22 @@
                         <p class="card-text">
                             <?= htmlspecialchars($book['description'] ?? 'Опис відсутній') ?>
                         </p>
-                        <a href="borrow.php?book_id=<?= $book['book_id'] ?>" class="btn btn-primary">Взяти в оренду</a>
+
+                        <!-- Вікове обмеження -->
+                        <?php if ($book['age_limit'] > 0): ?>
+                            <p style="color: #6c757d; font-size: 0.9em; margin: 8px 0;">
+                                Від <?= $book['age_limit'] ?> років
+                            </p>
+                        <?php endif; ?>
+
+                        <a href="borrow.php?book_id=<?= $book['book_id'] ?>" class="btn btn-primary w-100">Взяти в оренду</a>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="catalog.php" class="btn btn-outline-primary btn-lg">Весь каталог</a>
     </div>
 </div>

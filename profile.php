@@ -102,7 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td>
                                     <form method="POST" style="display: inline;">
                                         <input type="hidden" name="loan_id" value="<?= $loan['loan_id'] ?>">
-                                        <button type="submit" name="extend" class="btn btn-sm btn-warning">Продовжити</button>
                                         <button type="submit" name="return" class="btn btn-sm btn-danger">Віддати</button>
                                     </form>
                                 </td>
